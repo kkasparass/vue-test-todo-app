@@ -11,17 +11,18 @@ defineProps<{
 
 <template>
   <div class="todo-list">
-    <li class="list-item" v-for="todo in todoList">
+    <h2>{{ isCompletedList ? 'Completed Items' : 'To Be Done' }}</h2>
+    <li class="list-item" v-for="todo in todoList" :key="todo.id">
       <div class="todo-text-container">
         <input
           type="checkbox"
-          @change="onChange(todo.id)"
-          :checked="isCompletedList"
+          :checked="todo.isChecked"
           :id="`checkbox_${todo.id}`"
+          @change="onChange(todo.id)"
         />
-        {{ todo.label }}
+        <label :for="`checkbox_${todo.id}`">{{ todo.label }}</label>
       </div>
-      <button @click="onDelete(todo.id)">delete</button>
+      <button @click="onDelete(todo.id)" :data-testid="`delete-button_${todo.id}`">delete</button>
     </li>
   </div>
 </template>
@@ -50,6 +51,7 @@ defineProps<{
 
 .todo-list:first-child {
   border-bottom: 2px solid orange;
+  padding-bottom: 20px;
 }
 
 .todo-list:last-child {

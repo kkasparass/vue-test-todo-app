@@ -1,16 +1,15 @@
-import { ClientResponse } from "@/types/types";
-import axios, { AxiosRequestConfig } from "axios";
+import type { ClientResponse } from '@/types/types'
+import axios, { type AxiosRequestConfig } from 'axios'
 
 const apiClient = axios.create({
-  baseURL: "https://randomuser.me",
+  baseURL: 'https://randomuser.me',
   withCredentials: false,
   headers: {
-    Accept: "application/json",
-    "Content-Type": "application/json",
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
   },
-});
+})
 
 export default {
-  getName: (props: AxiosRequestConfig = {}) =>
-    apiClient.get<ClientResponse>("/api", { ...props }),
-};
+  getName: (props: AxiosRequestConfig = {}) => apiClient.get<ClientResponse>('/api', { ...props }),
+}

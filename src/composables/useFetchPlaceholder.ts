@@ -1,8 +1,8 @@
-import randomNameClient from '@/axiosClients/randomNameClient'
-import type { ClientResponse } from '@/types/types'
+import { ref, onMounted, onUnmounted } from 'vue'
 import { computed } from '@vue/reactivity'
 import axios, { type CancelTokenSource } from 'axios'
-import { ref, onMounted, onUnmounted, onUpdated } from 'vue'
+import randomNameClient from '@/axiosClients/randomNameClient'
+import type { ClientResponse } from '@/types/types'
 
 export const useFetchPlaceholder = () => {
   const data = ref<ClientResponse | null>(null)
@@ -11,8 +11,9 @@ export const useFetchPlaceholder = () => {
   const cancelTokenSource = ref<CancelTokenSource | null>(null)
 
   const placeholder = computed(() => {
-    if (isLoading.value || !data.value) return 'Loading next target'
+    if (isLoading.value) return 'Loading next target'
     if (error.value) return 'Kill god'
+    if (!data.value) return 'Loading next target'
     return `Excecute ${data.value.results[0] && data.value.results[0].name.first}`
   })
 

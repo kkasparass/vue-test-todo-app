@@ -1,0 +1,51 @@
+import { render, fireEvent } from '@testing-library/vue'
+import { AxiosError } from 'axios'
+import TodoPage from '../TodoPage.vue'
+import { defaultDataResponse, errorMessage } from '@/components/__mocks__/mockedNameResponses'
+
+describe('TitleInput', () => {
+  const { mockedGetName } = vi.hoisted(() => {
+    return {
+      mockedGetName: vi.fn(async () => defaultDataResponse),
+    }
+  })
+  vi.mock('@/axiosClients/randomNameClient', () => ({
+    default: {
+      getName: mockedGetName,
+    },
+  }))
+  const mockCreateFn = vi.fn()
+
+  afterEach(() => {
+    vi.restoreAllMocks()
+  })
+
+  it('TitleInput adds a new todo', async () => {
+    const { getByText, findByPlaceholderText, getByLabelText } = render(TodoPage)
+
+    await findByPlaceholderText('Excecute Martha')
+
+    const button = getByText('send it')
+    await fireEvent.click(button)
+
+    expect(getByLabelText('Excecute Martha'))
+  })
+
+  it('Clicking on new todo item sends it to the completed list', async () => {
+    const { getByText, findByPlaceholderText, getByLabelText } = render(TodoPage)
+
+    await findByPlaceholderText('Excecute Martha')
+
+    const button = getByText('send it')
+    await fireEvent.click(button)
+
+    const input = getByLabelText('Excecute Martha')
+    await fireEvent.click(input)
+
+    const todoListContainer = getByText('To Be Done').parentElement
+    expect(todoListContainer).not.toContain(getByLabelText('Excecute Martha'))
+
+    const completedListContainer = getByText('Completed Items').parentElement
+    expect(completedListContainer).toContain(getByLabelText('Excecute Martha'))
+  })
+})
