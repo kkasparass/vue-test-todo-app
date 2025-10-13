@@ -11,10 +11,10 @@ export const useFetchPlaceholder = () => {
   const cancelTokenSource = ref<CancelTokenSource | null>(null)
 
   const placeholder = computed(() => {
-    if (isLoading.value) return 'Loading next target'
-    if (error.value) return 'Kill god'
+    if (isLoading.value) return 'Loading next appointment'
+    if (error.value) return 'Fallback TODO'
     if (!data.value) return 'Loading next target'
-    return `Excecute ${data.value.results[0] && data.value.results[0].name.first}`
+    return `Visit ${data.value.results[0] && data.value.results[0].name.first}`
   })
 
   const fetchData = async () => {

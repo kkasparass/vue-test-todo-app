@@ -44,12 +44,12 @@ describe('TitleInput', () => {
       props: { msg: 'Title Text', onTodoCreate: mockCreateFn },
     })
 
-    await findByPlaceholderText('Excecute Martha')
+    await findByPlaceholderText('Visit Martha')
 
     const button = getByText('↳')
     await fireEvent.click(button)
 
-    expect(mockCreateFn).toHaveBeenCalledExactlyOnceWith('Excecute Martha')
+    expect(mockCreateFn).toHaveBeenCalledExactlyOnceWith('Visit Martha')
     expect(mockedGetName).toHaveBeenCalledTimes(2)
   })
 
@@ -59,12 +59,12 @@ describe('TitleInput', () => {
       props: { msg: 'Title Text', onTodoCreate: mockCreateFn },
     })
 
-    await findByPlaceholderText('Kill god')
+    await findByPlaceholderText('Fallback TODO')
 
     const button = getByText('↳')
     await fireEvent.click(button)
 
-    expect(mockCreateFn).toHaveBeenCalledExactlyOnceWith('Kill god')
+    expect(mockCreateFn).toHaveBeenCalledExactlyOnceWith('Fallback TODO')
     expect(mockedGetName).toHaveBeenCalledTimes(2)
   })
 })

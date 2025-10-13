@@ -24,7 +24,7 @@ const deleteTodo = (todoId: string) => {
 
 <template>
   <header>
-    <h1 class="icon-heading">✔️</h1>
+    <div class="title-icon">✔️</div>
 
     <div class="wrapper">
       <TitleInput :on-todo-create="addTodo" msg="DO it or else 🔪" />
@@ -59,7 +59,7 @@ header {
   margin: 0 auto 2rem;
 }
 
-.icon-heading {
+.title-icon {
   font-size: 125px;
   line-height: 1.2;
 }

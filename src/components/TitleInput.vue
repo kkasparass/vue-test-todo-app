@@ -21,7 +21,7 @@ const handleTodoCreate = () => {
 <template>
   <div class="greetings">
     <h1 class="green">{{ msg }}</h1>
-    <h3>Write down your vows, unbreakable promises, and destined actions:</h3>
+    <h3>What shall I do next:</h3>
   </div>
   <form @submit.prevent="handleTodoCreate" class="input-container">
     <input class="input" name="todo-label-input" v-model="text" :placeholder="placeholder" />
