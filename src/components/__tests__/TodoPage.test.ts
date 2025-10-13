@@ -25,7 +25,7 @@ describe('TitleInput', () => {
 
     await findByPlaceholderText('Excecute Martha')
 
-    const button = getByText('send it')
+    const button = getByText('↳')
     await fireEvent.click(button)
 
     expect(getByLabelText('Excecute Martha'))
@@ -36,7 +36,7 @@ describe('TitleInput', () => {
 
     await findByPlaceholderText('Excecute Martha')
 
-    const button = getByText('send it')
+    const button = getByText('↳')
     await fireEvent.click(button)
 
     const input = getByLabelText('Excecute Martha')

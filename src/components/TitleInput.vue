@@ -23,10 +23,10 @@ const handleTodoCreate = () => {
     <h1 class="green">{{ msg }}</h1>
     <h3>Write down your vows, unbreakable promises, and destined actions:</h3>
   </div>
-  <div class="input-container">
-    <input class="input" v-model="text" :placeholder="placeholder" />
-    <button @click="handleTodoCreate">send it</button>
-  </div>
+  <form @submit.prevent="handleTodoCreate" class="input-container">
+    <input class="input" name="todo-label-input" v-model="text" :placeholder="placeholder" />
+    <input type="submit" class="input-button" value="↳" />
+  </form>
 </template>
 
 <style scoped>
@@ -44,11 +44,20 @@ h3 {
 .input-container {
   width: 100%;
   display: flex;
-  gap: 15px;
+  gap: 8px;
 }
 
 .input {
   width: 100%;
+}
+
+.input-button {
+  background-color: white;
+  border-radius: 4px;
+}
+
+.input-button:hover {
+  background-color: #e9f1f2;
 }
 
 .greetings h1,

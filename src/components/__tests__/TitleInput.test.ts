@@ -32,7 +32,7 @@ describe('TitleInput', () => {
     const input = getByPlaceholderText('Loading next target')
     await fireEvent.update(input, 'Buy cupcakes')
 
-    const button = getByText('send it')
+    const button = getByText('↳')
     await fireEvent.click(button)
 
     expect(mockCreateFn).toHaveBeenCalledExactlyOnceWith('Buy cupcakes')
@@ -46,7 +46,7 @@ describe('TitleInput', () => {
 
     await findByPlaceholderText('Excecute Martha')
 
-    const button = getByText('send it')
+    const button = getByText('↳')
     await fireEvent.click(button)
 
     expect(mockCreateFn).toHaveBeenCalledExactlyOnceWith('Excecute Martha')
@@ -61,7 +61,7 @@ describe('TitleInput', () => {
 
     await findByPlaceholderText('Kill god')
 
-    const button = getByText('send it')
+    const button = getByText('↳')
     await fireEvent.click(button)
 
     expect(mockCreateFn).toHaveBeenCalledExactlyOnceWith('Kill god')
