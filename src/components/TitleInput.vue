@@ -1,21 +1,21 @@
 <script setup lang="ts">
-import { useFetchPlaceholder } from "@/composables/useFetchPlaceholder";
-import { ref } from "vue";
+import { useFetchPlaceholder } from '@/composables/useFetchPlaceholder'
+import { ref } from 'vue'
 
 const { onTodoCreate } = defineProps<{
-  msg: string;
-  onTodoCreate: (newTodo: string) => void;
-}>();
+  msg: string
+  onTodoCreate: (newTodo: string) => void
+}>()
 
-const { placeholder, fetchData } = useFetchPlaceholder();
+const { placeholder, fetchData } = useFetchPlaceholder()
 
-const text = ref("");
+const text = ref('')
 
 const handleTodoCreate = () => {
-  onTodoCreate(text.value || placeholder.value);
-  text.value = "";
-  fetchData();
-};
+  onTodoCreate(text.value || placeholder.value)
+  text.value = ''
+  fetchData()
+}
 </script>
 
 <template>
@@ -24,7 +24,7 @@ const handleTodoCreate = () => {
     <h3>Write down your vows, unbreakable promises, and destined actions:</h3>
   </div>
   <div class="input-container">
-    <input v-model="text" :placeholder="placeholder" />
+    <input class="input" v-model="text" :placeholder="placeholder" />
     <button @click="handleTodoCreate">send it</button>
   </div>
 </template>
@@ -42,8 +42,13 @@ h3 {
 }
 
 .input-container {
+  width: 100%;
   display: flex;
   gap: 15px;
+}
+
+.input {
+  width: 100%;
 }
 
 .greetings h1,

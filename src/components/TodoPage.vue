@@ -39,6 +39,19 @@ const deleteTodo = (todoId: string) => {
 <style scoped>
 header {
   line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+  position: sticky;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 16px;
 }
 
 .logo {
@@ -48,13 +61,16 @@ header {
 
 .icon-heading {
   font-size: 125px;
+  line-height: 1.2;
 }
 
 @media (min-width: 1024px) {
   header {
     display: flex;
+    flex-direction: row;
     place-items: center;
     padding-right: calc(var(--section-gap) / 2);
+    margin-bottom: 0;
   }
 
   .logo {
