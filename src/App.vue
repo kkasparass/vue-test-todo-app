@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import TodoPage from './components/TodoPage.vue'
 </script>
 
