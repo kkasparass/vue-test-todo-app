@@ -1,5 +1,5 @@
 import { ref, onMounted, onUnmounted } from 'vue'
-import { computed } from '@vue/reactivity'
+import { computed } from 'vue'
 import axios, { type CancelTokenSource } from 'axios'
 import randomNameClient from '@/axiosClients/randomNameClient'
 import type { ClientResponse } from '@/types/types'

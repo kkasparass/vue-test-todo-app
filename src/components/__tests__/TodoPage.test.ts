@@ -1,7 +1,6 @@
 import { render, fireEvent } from '@testing-library/vue'
-import { AxiosError } from 'axios'
 import TodoPage from '../TodoPage.vue'
-import { defaultDataResponse, errorMessage } from '@/components/__mocks__/mockedNameResponses'
+import { defaultDataResponse } from '@/components/__mocks__/mockedNameResponses'
 
 describe('TitleInput', () => {
   const { mockedGetName } = vi.hoisted(() => {
@@ -14,7 +13,6 @@ describe('TitleInput', () => {
       getName: mockedGetName,
     },
   }))
-  const mockCreateFn = vi.fn()
 
   afterEach(() => {
     vi.restoreAllMocks()

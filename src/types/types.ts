@@ -1,14 +1,14 @@
 export type ClientResponse = {
   results: {
     name: {
-      first: string;
-      last: string;
-    };
-  }[];
-};
+      first: string
+      last: string
+    }
+  }[]
+}
 
 export type TodoListItem = {
-  id: string;
-  label: string;
-  isChecked: boolean;
-};
+  id: string
+  label: string
+  isChecked: boolean
+}
